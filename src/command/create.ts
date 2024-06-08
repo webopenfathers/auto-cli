@@ -1,4 +1,5 @@
 import { input, select } from '@inquirer/prompts'
+import { clone } from 'src/utils/clone'
 
 export interface TemplateInfo {
   name: string // 模板名名称
@@ -55,7 +56,9 @@ export async function create(projectName?: string) {
   })
 
   const info = templates.get(templateName)
-  console.log(info)
+  if (info) {
+    clone(info.downloadUrl, projectName, ['-b', info.branch])
+  }
 
   console.log('create', projectName)
 }
