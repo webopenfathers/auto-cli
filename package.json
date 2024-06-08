@@ -1,0 +1,26 @@
+{
+  "name": "auto-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js --bundleConfigAsCjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@inquirer/prompts": "^3.3.0",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "commander": "^12.1.0",
+    "rollup": "^4.18.0",
+    "rollup-plugin-node-externals": "^5.1.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.4.5"
+  }
+}
