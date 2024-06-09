@@ -1,3 +1,5 @@
+import path from 'path'
+import fs from 'fs-extra'
 import { input, select } from '@inquirer/prompts'
 import { clone } from 'src/utils/clone'
 
@@ -30,6 +32,23 @@ export const templates: Map<string, TemplateInfo> = new Map([
   ],
 ])
 
+export function isOverwrite(fileName: string) {
+  console.warn(`${fileName}文件夹已存在，是否覆盖？`)
+  return select({
+    message: '是否覆盖？',
+    choices: [
+      {
+        name: '覆盖',
+        value: true,
+      },
+      {
+        name: '取消',
+        value: false,
+      },
+    ],
+  })
+}
+
 export async function create(projectName?: string) {
   // 初始化模板列表
   const templateList = Array.from(templates).map(
@@ -48,6 +67,19 @@ export async function create(projectName?: string) {
     projectName = await input({
       message: '请输入项目名称',
     })
+  }
+
+  // 如果文件夹已经存在，则提示是覆盖
+  const filePath = path.resolve(process.cwd(), projectName)
+  if (fs.existsSync(filePath)) {
+    const run = await isOverwrite(projectName)
+    // 覆盖 删除之前的文件夹
+    if (run) {
+      await fs.remove(filePath)
+    } else {
+      // 否  不覆盖直接结束
+      return
+    }
   }
 
   const templateName = await select({

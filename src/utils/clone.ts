@@ -29,15 +29,15 @@ export const clone = async (
     })
 
     console.log(chalk.green('\n代码下载成功'))
-    console.log(chalk.blackBright('\n====================================='))
-    console.log(chalk.blackBright('\n======欢迎使用 zbw-cli 脚手架========='))
-    console.log(chalk.blackBright('\n====================================='))
-    console.log('\n')
-    console.log('\n')
+    console.log(chalk.blueBright('\n====================================='))
+    console.log(chalk.blueBright('\n====== 欢迎使用 zbw-cli 脚手架 ======'))
+    console.log(chalk.blueBright('\n====================================='))
     console.log(
-      chalk.blackBright('\n=====请进入项目目录执行 pnpm install 安装依赖====')
+      chalk.blackBright('\n==== 请进入项目目录执行 pnpm install 安装依赖 ====')
     )
-    console.log(chalk.blackBright('\n=====pnpm run dev 启动项目=========='))
+    console.log(
+      chalk.blackBright('\n======== pnpm run dev 启动项目 ==========')
+    )
   } catch (error) {
     console.error(chalk.red('\n代码下载失败'))
     console.log(error)
