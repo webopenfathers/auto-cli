@@ -1,14 +1,18 @@
 {
-  "name": "auto-cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "zbw-cli",
+  "version": "0.0.1",
+  "description": "zbw-cli 脚手架",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js --bundleConfigAsCjs"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Vite",
+    "Vue3",
+    "TypeScript"
+  ],
+  "author": "zbw",
   "license": "ISC",
   "devDependencies": {
     "@inquirer/prompts": "^3.3.0",
