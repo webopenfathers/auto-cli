@@ -75,7 +75,7 @@ export const checkVersion = async (name: string, version: string) => {
     )
     console.log(
       `可使用：${chalk.yellow(
-        'npm install zbw-cli@latest'
+        'npm install zbw-cli@latest -g'
       )}，或者使用：${chalk.yellow('zbw update')}更新`
     )
   }
