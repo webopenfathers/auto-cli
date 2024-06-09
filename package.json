@@ -13,6 +13,14 @@
     "TypeScript"
   ],
   "author": "zbw",
+  "bin": {
+    "zbw": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@inquirer/prompts": "^3.3.0",
