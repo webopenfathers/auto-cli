@@ -1,7 +1,11 @@
 import path from 'path'
 import fs from 'fs-extra'
+import { gt } from 'lodash'
+import chalk from 'chalk'
 import { input, select } from '@inquirer/prompts'
 import { clone } from 'src/utils/clone'
+import { name, version } from '../../package.json'
+import axios from 'axios'
 
 export interface TemplateInfo {
   name: string // 模板名名称
@@ -49,6 +53,36 @@ export function isOverwrite(fileName: string) {
   })
 }
 
+export const getNpmLatestVersion = async (name: string) => {
+  const npmUrl = `https://registry.npmjs.org/${name}`
+  try {
+    const { data } = await axios.get(npmUrl)
+    return data['dist-tags'].latest
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+// 检查版本更新
+export const checkVersion = async (name: string, version: string) => {
+  const latestVersion = await getNpmLatestVersion(name)
+  const need = gt(latestVersion, version)
+  if (need) {
+    console.warn(
+      `检测到zbw最新版本：${chalk.blackBright(
+        latestVersion
+      )}，当前版本是${chalk.blackBright(version)}，请及时更新`
+    )
+    console.log(
+      `可使用${chalk.yellow(
+        'npm install zbw-cli@latest'
+      )}，或者使用${chalk.yellow('zbw update')}更新`
+    )
+  }
+
+  return need
+}
+
 export async function create(projectName?: string) {
   // 初始化模板列表
   const templateList = Array.from(templates).map(
@@ -81,6 +115,9 @@ export async function create(projectName?: string) {
       return
     }
   }
+
+  // 检查版本更新
+  await checkVersion(name, version)
 
   const templateName = await select({
     message: '请选择模板',
