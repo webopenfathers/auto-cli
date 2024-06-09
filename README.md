@@ -25,6 +25,9 @@ zbw create
 # 执行项目文件夹名称并选择模板创建新项目
 zbw create [projectName]
 
+# 更新脚手架到最新版本
+zbw update
+
 
 # 查看脚手架版本
 zbw -v
