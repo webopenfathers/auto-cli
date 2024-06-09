@@ -8,7 +8,7 @@
 
 ## 📕 模板
 
-- ✅ 快速生成 Vue3+TS+Vite+ElementPlus+Pinia+Axios+Mock 的模板
+- ✅ 快速生成 [Vue3+TS+Vite+ElementPlus+Pinia+Axios+Mock 的模板](https://github.com/webopenfathers/admin-pro)
 
 ## 📦 安装
 
