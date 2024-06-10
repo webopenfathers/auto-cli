@@ -32,12 +32,11 @@ export const clone = async (
     console.log(chalk.blueBright('\n====================================='))
     console.log(chalk.blueBright('\n====== 欢迎使用 zbw-cli 脚手架 ======'))
     console.log(chalk.blueBright('\n====================================='))
-    console.log(
-      chalk.blackBright('\n==== 请进入项目目录执行 pnpm install 安装依赖 ====')
-    )
-    console.log(
-      chalk.blackBright('\n======== pnpm run dev 启动项目 ==========')
-    )
+    console.log(`\n项目创建成功 ${chalk.blueBright(projectName)}`)
+    console.log(`执行以下命令启动项目：`)
+    console.log(`cd ${chalk.blueBright(projectName)}`)
+    console.log(`${chalk.yellow('pnpm')} install`)
+    console.log(`${chalk.yellow('pnpm')} run dev`)
   } catch (error) {
     console.error(chalk.red('\n代码下载失败'))
     console.log(error)
