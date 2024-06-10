@@ -2,7 +2,7 @@ import simpleGit, { SimpleGitOptions } from 'simple-git'
 import createLogger from 'progress-estimator'
 import chalk from 'chalk'
 // 作用控制台打印出较大文字
-const figlet = require('figlet')
+// const figlet = require('figlet')
 import log from './log'
 
 // 初始化进度条
@@ -13,10 +13,10 @@ const logger = createLogger({
   },
 })
 
-const goodPrinter = async () => {
-  const data = await figlet('zbw-cli')
-  console.log(chalk.rgb(40, 156, 193).visible(data))
-}
+// const goodPrinter = async () => {
+//   const data = await figlet('zbw-cli')
+//   console.log(chalk.rgb(40, 156, 193).visible(data))
+// }
 
 const gitOptions: Partial<SimpleGitOptions> = {
   baseDir: process.cwd(), // 当前工作目录
@@ -35,7 +35,7 @@ export const clone = async (
     await logger(git.clone(url, projectName, options), '代码下载中...', {
       estimate: 7000, // 预计下载时间
     })
-    await goodPrinter()
+    // await goodPrinter()
     console.log(chalk.green('\n代码下载成功'))
     console.log(chalk.blueBright('\n====================================='))
     console.log(chalk.blueBright('\n====== 欢迎使用 zbw-cli 脚手架 ======'))
