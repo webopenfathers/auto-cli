@@ -38,12 +38,18 @@ importers:
       commander:
         specifier: ^12.1.0
         version: 12.1.0
+      figlet:
+        specifier: ^1.7.0
+        version: 1.7.0
       fs-extra:
         specifier: ^11.1.1
         version: 11.2.0
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      log-symbols:
+        specifier: 4.1.0
+        version: 4.1.0
       ora:
         specifier: '5'
         version: 5.4.1
@@ -473,6 +479,11 @@ packages:
   external-editor@3.1.0:
     resolution: {integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==}
     engines: {node: '>=4'}
+
+  figlet@1.7.0:
+    resolution: {integrity: sha512-gO8l3wvqo0V7wEFLXPbkX83b7MVjRrk1oRLfYlZXol8nEpb/ON9pcKLI4qpBv5YtOTfrINtqb7b40iYY2FTWFg==}
+    engines: {node: '>= 0.4.0'}
+    hasBin: true
 
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
@@ -1278,6 +1289,8 @@ snapshots:
       chardet: 0.7.0
       iconv-lite: 0.4.24
       tmp: 0.0.33
+
+  figlet@1.7.0: {}
 
   figures@3.2.0:
     dependencies:
